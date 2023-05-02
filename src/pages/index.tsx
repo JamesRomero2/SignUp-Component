@@ -1,7 +1,11 @@
-import Head from 'next/head'
-
+import Head from 'next/head';
+import { useState } from 'react';
 
 export default function Home() {
+  const [firstName, setFirstName] = useState<string>('');
+  const [lastName, setLastName] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('')
   return (
     <>
       <Head>
@@ -22,8 +26,8 @@ export default function Home() {
         <meta name="twitter:url" content="https://sign-in-form-component.vercel.app/" />
         <meta name="twitter:image" content="https://sign-in-form-component.vercel.app/og-image.png" />
       </Head>
-      <main className='bg-primary-red h-screen flex flex-row p-40 items-center'>
-        <section className='flex flex-1 flex-col justify-center text-white'>
+      <main className='bg-primary-red md:h-screen flex flex-col p-5 items-center gap-10 lg:p-40 md:flex-row md:gap-2'>
+        <section className='flex flex-1 flex-col justify-center text-white md:text-left text-center'>
           <h1 className='font-bold text-5xl leading-tight mb-5'>
             Learn to code by watching others
           </h1>
