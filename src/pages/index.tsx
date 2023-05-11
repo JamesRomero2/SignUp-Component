@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import Head from 'next/head';
 import Image from 'next/image';
 import React, { useState } from 'react';
@@ -63,7 +64,7 @@ export default function Home() {
         <meta name="twitter:url" content="https://sign-in-form-component.vercel.app/" />
         <meta name="twitter:image" content="https://sign-in-form-component.vercel.app/og-image.png" />
       </Head>
-      <main className='bg-primary-red md:h-screen flex flex-col p-5 items-center gap-10 lg:p-40 md:flex-row md:gap-2'>
+      <motion.main className='bg-primary-red md:h-screen flex flex-col p-5 items-center gap-10 lg:p-40 md:flex-row md:gap-2' initial={{opacity:0}} animate={{opacity:1}} transition={{duration: 0.5}}>
         <section className='flex flex-1 flex-col justify-center text-white md:text-left text-center'>
           <h1 className='font-bold text-5xl leading-tight mb-5'>
             Learn to code by watching others
@@ -73,10 +74,10 @@ export default function Home() {
           </p>
         </section>
         <section className='flex-1'>
-          <div className="bg-accent-blue w-full text-center p-5 rounded-lg text-white mb-5 drop-shadow-md">
+          <motion.div className="bg-accent-blue w-full text-center p-5 rounded-lg text-white mb-5 drop-shadow-md" initial={{scaleX:0}} animate={{scaleX:1}} transition={{delay:0.5, duration:0.5}}>
             <p className='font-normal'><span className='font-bold'>Try it free 7 days </span>then $20/mo. thereafter</p>
-          </div>
-          <form action="" className='w-full bg-white rounded-lg overflow-hidden p-8 flex flex-col gap-5 drop-shadow-md'>
+          </motion.div>
+          <motion.form action="" className='w-full bg-white rounded-lg overflow-hidden p-8 flex flex-col gap-5 drop-shadow-md' initial={{scaleX:0}} animate={{scaleX:1}} transition={{delay:0.5, duration:0.5}}>
             <div className={`focus-within:border-neutral-dark-blue border-solid p-3 rounded-md flex flex-row border-neutral-gray-blue border`} id='firstName'>
               <input type="text" placeholder="First Name" className='w-full !outline-none' onChange={handleInputChange} value={formState.firstName} name='firstName' />
               <Image src={'/icon-error.svg'} alt='Icon Error' width={25} height={25} className='ml-3 invisible' id='firstName-error'/>
@@ -95,9 +96,9 @@ export default function Home() {
             </div>
             <button className='bg-primary-green text-white p-5 rounded-lg border-b-neutral-gray-blue border-b-4 drop-shadow-md font-medium tracking-wider' onClick={submitButton}>CLAIM YOUR FREE TRIAL</button>
             <p className='text-xs text-neutral-gray-blue text-center'>By clicking the button, you are agreeing to our <a href="" className='text-xs font-medium text-primary-red'>Terms and Services</a></p>
-          </form>
+          </motion.form>
         </section>
-      </main>
+      </motion.main>
     </>
   )
 }
